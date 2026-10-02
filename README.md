@@ -70,7 +70,7 @@ Install browser binaries once if Playwright asks: `pnpm exec playwright install 
 ## Publishing live content
 
 1. Maintain `live/en.json`, `live/pt-br.json`, and `live/photo.jpg` (same shape as `content/`).
-2. Link the Vercel project and pull env vars locally (`vercel link`, `vercel env pull`) so `BLOB_READ_WRITE_TOKEN` or OIDC + `BLOB_STORE_ID` is available—do not commit secrets.
+2. Put `BLOB_READ_WRITE_TOKEN` in a gitignored `.env` at the repo root. That read-write token is the only credential `pnpm upload` uses. Do not commit it, and do not run the upload through `vercel env run` or OIDC.
 3. Run:
 
 ```bash

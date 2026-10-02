@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -6,18 +7,8 @@ import { put } from "@vercel/blob";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const token = process.env.BLOB_READ_WRITE_TOKEN;
-const oidcToken = process.env.VERCEL_OIDC_TOKEN;
-const storeId = process.env.BLOB_STORE_ID;
-const auth =
-  token != null && token !== ""
-    ? { token }
-    : oidcToken && storeId
-      ? { oidcToken, storeId }
-      : null;
-if (!auth) {
-  console.error(
-    "Set BLOB_READ_WRITE_TOKEN, or VERCEL_OIDC_TOKEN with BLOB_STORE_ID (for example store_KeJ3dj7bFSxscjMv for resume-blob)."
-  );
+if (!token) {
+  console.error("Set BLOB_READ_WRITE_TOKEN in .env");
   process.exit(1);
 }
 
@@ -36,7 +27,7 @@ for (const file of files) {
     allowOverwrite: true,
     cacheControlMaxAge: 60,
     contentType: file.contentType,
-    ...auth,
+    token: process.env.BLOB_READ_WRITE_TOKEN,
   });
   if (!blob.url.endsWith(`/${file.pathname}`)) {
     console.error(`Unexpected blob URL for ${file.pathname}: ${blob.url}`);

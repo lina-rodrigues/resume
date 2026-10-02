@@ -14,7 +14,7 @@ Do not point the app at blob URLs directly unless the project explicitly changes
 ## Secrets and environment
 
 - Do **not** read, grep, edit, or commit `.env`, `.env.local`, or other pulled secret files.
-- `**pnpm upload**` needs Vercel Blob credentials on the machine that runs it. The upload script accepts either OIDC-style variables (short-lived token + store id) or a static read-write token supplied by Vercel when a blob store is linked to the project—see `scripts/upload.mjs` and [Vercel Blob docs](https://vercel.com/docs/vercel-blob). Do not paste credential values into issues, PRs, or the repo.
+- `**pnpm upload**` needs only `BLOB_READ_WRITE_TOKEN` in a gitignored `.env` at the repo root. `scripts/upload.mjs` loads that file with `dotenv` and passes the token to `@vercel/blob`. Do not paste the token into issues, PRs, or the repo.
 - Rotating upload credentials does **not** change public blob object URLs or the redirect pattern in `vercel.json`; it only affects who can write to the store.
 
 ## Scripts
