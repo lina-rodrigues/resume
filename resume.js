@@ -242,7 +242,7 @@ const app = createApp({
       const response = await fetch(`content/${lang}.json`);
       if (!response.ok) throw new Error(String(response.status));
       this.resume = await response.json();
-      if (present(this.resume && this.resume.name)) document.title = text(this.resume.name);
+      if (this.name) document.title = this.title ? `${this.name} — ${this.title}` : this.name;
     } catch (error) {
       this.error = "Could not load resume.";
     }

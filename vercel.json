@@ -2,6 +2,17 @@
   "framework": null,
   "installCommand": "",
   "buildCommand": "",
+  "functions": {
+    "api/preview.js": {
+      "includeFiles": "index.html"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/preview"
+    }
+  ],
   "redirects": [
     {
       "source": "/content/:path*",
