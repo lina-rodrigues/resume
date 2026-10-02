@@ -340,4 +340,40 @@ li + li {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+
+  .sheet::before {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 70mm;
+    background: var(--sidebar-bg);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .main,
+  .sidebar {
+    position: relative;
+    z-index: 1;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .item,
+  li,
+  .contact-row,
+  .skill,
+  .lang {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h2,
+  .item-top {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
 }
