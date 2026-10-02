@@ -1,0 +1,107 @@
+{
+  "name": "Julia Rodrigues",
+  "title": "Software Engineer",
+  "photo": "photo.jpg",
+  "summary": "Software engineer with six years building web applications, APIs, and the internal tools teams use every day. Comfortable across the stack, most at home in JavaScript and PHP, and used to shipping with a small team from planning through production. Note: This is not a real person, it's just demo data.",
+  "contact": {
+    "email": "julia.rodrigues@example.com",
+    "phone": "+55 11 90000-0000",
+    "location": "São Paulo, Brasil",
+    "linkedin": {
+      "label": "linkedin.com/in/julia-rodrigues-demo",
+      "url": "https://example.com/julia-rodrigues"
+    }
+  },
+  "experience": [
+    {
+      "role": "Software Engineer",
+      "company": "Northwind Studio",
+      "start": "March 2023",
+      "end": "Present",
+      "summary": "Builds customer-facing features and the APIs behind them for a product studio in São Paulo.",
+      "highlights": [
+        "Ships Vue.js interfaces and PHP APIs for client projects, from the first sketch to release",
+        "Designs REST endpoints and the MySQL schema behind billing, accounts, and reporting",
+        "Reviews pull requests and pairs with junior engineers on debugging and test coverage",
+        "Sets up deploy pipelines and error tracking so releases stay small and recoverable",
+        "Works with design and product to turn support tickets into scoped, shippable work"
+      ]
+    },
+    {
+      "role": "Software Engineer",
+      "company": "Lumen Field",
+      "start": "June 2020",
+      "end": "February 2023",
+      "summary": "Maintained a multi-tenant operations platform used by logistics teams.",
+      "highlights": [
+        "Built Laravel services for orders, warehouses, and delivery status",
+        "Moved slow reports onto queued jobs and cached lookups in Redis",
+        "Added integration tests around the billing flow after a series of production incidents",
+        "Joined on-call rotation and wrote the runbooks the team still uses"
+      ]
+    },
+    {
+      "role": "Junior Software Engineer",
+      "company": "Paperlane",
+      "start": "August 2018",
+      "end": "May 2020",
+      "summary": "First engineering role, on a small team shipping a content tool for editors.",
+      "highlights": [
+        "Implemented editor features in JavaScript and fixed cross-browser layout bugs",
+        "Wrote the import path that brought existing articles into the new editor",
+        "Learned code review, git, and how to break a large ticket into reviewable pieces"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Market Day",
+      "role": "Personal project",
+      "summary": "A small inventory app for weekend market stalls.",
+      "highlights": [
+        "Vue.js front end with a Node API and a SQLite database",
+        "Vendors track stock on a phone and export the day's sales as a spreadsheet"
+      ]
+    },
+    {
+      "name": "Route Cards",
+      "role": "Personal project",
+      "summary": "A transit board that shows the next buses on a saved commute.",
+      "highlights": [
+        "Polls a public arrivals feed and renders the next departures",
+        "Keeps the last successful response on screen when the feed is down"
+      ]
+    }
+  ],
+  "skills": [
+    { "name": "JavaScript", "level": 8 },
+    { "name": "Vue.js", "level": 7 },
+    { "name": "PHP", "level": 7 },
+    { "name": "Laravel", "level": 6 },
+    { "name": "Node.js", "level": 6 },
+    { "name": "MySQL", "level": 7 },
+    { "name": "REST APIs", "level": 8 },
+    { "name": "Git", "level": 7 }
+  ],
+  "languages": [
+    { "name": "Portuguese", "level": 5 },
+    { "name": "English", "level": 4 },
+    { "name": "Spanish", "level": 2 }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's degree, Computer Science",
+      "date": "2014 – 2018",
+      "school": "Atlantic Technical University"
+    }
+  ],
+  "labels": {
+    "summary": "Summary",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "skills": "Skills",
+    "languages": "Languages",
+    "education": "Education"
+  }
+}

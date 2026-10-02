@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-tailspin wa-palette-vogue wa-brand-indigo">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume</title>
+    <script>
+      document.documentElement.classList.add(
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? "wa-dark" : "wa-light"
+      );
+    </script>
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/25448c7e14304aaf/webawesome@3.14.0/styles/themes/tailspin.css">
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/25448c7e14304aaf/webawesome@3.14.0/styles/color/palettes/vogue.css">
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/25448c7e14304aaf/webawesome@3.14.0/styles/utilities.css">
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/25448c7e14304aaf/webawesome@3.14.0/styles/native.css">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=geist-mono:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=aleo:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
+    <style>
+      :root {
+        --wa-font-family-body: Inter, sans-serif;
+        --wa-font-family-heading: Inter, sans-serif;
+        --wa-font-family-code: "Geist Mono", monospace;
+        --wa-font-family-longform: Aleo, serif;
+        --wa-font-weight-body: 400;
+        --wa-font-weight-heading: 650;
+        --wa-font-weight-code: 400;
+        --wa-font-weight-longform: 400;
+        --wa-border-radius-scale: 2;
+        --wa-border-width-scale: 2;
+        --wa-space-scale: 0.75;
+      }
+    </style>
+    <link rel="stylesheet" href="resume.css">
+    <script type="module" src="https://ka-p.webawesome.com/kit/25448c7e14304aaf/webawesome@3.14.0/webawesome.loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.5.43/dist/vue.global.prod.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="theme-toggle">
+        <wa-switch id="theme-switch" ref="themeSwitch" size="s" @change="onThemeChange">
+          <span class="visually-hidden">Color scheme</span>
+        </wa-switch>
+      </div>
+      <p v-if="error" class="load-error">{{ error }}</p>
+      <div v-if="resume" class="stage">
+        <article class="sheet">
+          <div class="main">
+            <header v-if="showHeader" class="masthead">
+              <div class="identity">
+                <h1 v-if="name">{{ name }}</h1>
+                <p v-if="title" class="title">{{ title }}</p>
+              </div>
+              <wa-avatar
+                v-if="showAvatar"
+                :image="photo || null"
+                :initials="initials"
+                :label="name || 'Photo'"
+              ></wa-avatar>
+            </header>
+
+            <section v-if="summary" class="block">
+              <h2 v-if="label('summary')">{{ label('summary') }}</h2>
+              <p class="prose">{{ summary }}</p>
+            </section>
+
+            <section v-if="experience.length" class="block">
+              <h2 v-if="label('experience')">{{ label('experience') }}</h2>
+              <article v-for="(job, index) in experience" :key="'job-' + index" class="item">
+                <div class="item-top">
+                  <div>
+                    <div v-if="job.role" class="role">{{ job.role }}</div>
+                    <div v-if="job.company" class="company">{{ job.company }}</div>
+                  </div>
+                  <div v-if="job.when" class="when">{{ job.when }}</div>
+                </div>
+                <p v-if="job.summary" class="prose">{{ job.summary }}</p>
+                <ul v-if="job.highlights.length">
+                  <li v-for="(highlight, highlightIndex) in job.highlights" :key="highlightIndex">{{ highlight }}</li>
+                </ul>
+              </article>
+            </section>
+
+            <section v-if="projects.length" class="block">
+              <h2 v-if="label('projects')">{{ label('projects') }}</h2>
+              <article v-for="(project, index) in projects" :key="'project-' + index" class="item">
+                <h3 v-if="project.name" class="project-name">{{ project.name }}</h3>
+                <div v-if="project.role" class="project-role">{{ project.role }}</div>
+                <p v-if="project.summary" class="prose">{{ project.summary }}</p>
+                <ul v-if="project.highlights.length">
+                  <li v-for="(highlight, highlightIndex) in project.highlights" :key="highlightIndex">{{ highlight }}</li>
+                </ul>
+              </article>
+            </section>
+          </div>
+
+          <aside class="sidebar">
+            <section v-if="contactRows.length" class="block">
+              <h2 v-if="label('contact')">{{ label('contact') }}</h2>
+              <div v-for="(row, index) in contactRows" :key="'contact-' + index" class="contact-row">
+                <wa-icon :name="row.icon" :family="row.family"></wa-icon>
+                <a v-if="row.href" :href="row.href">{{ row.text }}</a>
+                <span v-else>{{ row.text }}</span>
+              </div>
+            </section>
+
+            <section v-if="skillGroups.length" class="block">
+              <h2 v-if="label('skills')">{{ label('skills') }}</h2>
+              <template v-for="(group, index) in skillGroups" :key="'skill-' + index">
+                <div v-if="group.type === 'score'" class="skill">
+                  <div v-if="group.name" class="skill-name">{{ group.name }}</div>
+                  <wa-progress-bar :value="group.level * 10" :label="group.name || 'Skill'"></wa-progress-bar>
+                </div>
+                <p v-else class="plain-list">{{ group.names.join(", ") }}</p>
+              </template>
+            </section>
+
+            <section v-if="languageGroups.length" class="block">
+              <h2 v-if="label('languages')">{{ label('languages') }}</h2>
+              <template v-for="(group, index) in languageGroups" :key="'language-' + index">
+                <div v-if="group.type === 'score'" class="lang">
+                  <span v-if="group.name">{{ group.name }}</span>
+                  <span class="dots" :aria-label="group.level + ' / 5'">
+                    <wa-icon
+                      v-for="dot in 5"
+                      :key="dot"
+                      name="circle"
+                      :class="{ on: dot <= group.level }"
+                    ></wa-icon>
+                  </span>
+                </div>
+                <p v-else class="plain-list">{{ group.names.join(", ") }}</p>
+              </template>
+            </section>
+
+            <section v-if="education.length" class="block">
+              <h2 v-if="label('education')">{{ label('education') }}</h2>
+              <article v-for="(item, index) in education" :key="'school-' + index" class="item">
+                <div v-if="item.degree" class="degree">{{ item.degree }}</div>
+                <div v-if="item.date" class="edu-date">{{ item.date }}</div>
+                <div v-if="item.school" class="school">{{ item.school }}</div>
+              </article>
+            </section>
+          </aside>
+        </article>
+      </div>
+    </div>
+    <script src="resume.js"></script>
+  </body>
+</html>

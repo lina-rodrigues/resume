@@ -1,0 +1,107 @@
+{
+  "name": "Julia Rodrigues",
+  "title": "Engenheira de software",
+  "photo": "photo.jpg",
+  "summary": "Engenheira de software com seis anos construindo aplicações web, APIs e as ferramentas internas que os times usam todos os dias. Confortável em toda a stack, mais à vontade com JavaScript e PHP, e acostumada a entregar com um time pequeno, do planejamento à produção. Nota: Esta não é uma pessoa real, são apenas dados de demonstração.",
+  "contact": {
+    "email": "julia.rodrigues@example.com",
+    "phone": "+55 11 90000-0000",
+    "location": "São Paulo, Brasil",
+    "linkedin": {
+      "label": "linkedin.com/in/julia-rodrigues-demo",
+      "url": "https://example.com/julia-rodrigues"
+    }
+  },
+  "experience": [
+    {
+      "role": "Engenheira de software",
+      "company": "Northwind Studio",
+      "start": "Março 2023",
+      "end": "Atual",
+      "summary": "Constrói funcionalidades para clientes e as APIs por trás delas em um estúdio de produto em São Paulo.",
+      "highlights": [
+        "Entrega interfaces em Vue.js e APIs em PHP para projetos de clientes, do primeiro esboço ao lançamento",
+        "Desenha endpoints REST e o schema MySQL de cobrança, contas e relatórios",
+        "Revisa pull requests e pareia com engenheiras juniores em depuração e cobertura de testes",
+        "Configura pipelines de deploy e rastreamento de erros para que os lançamentos fiquem pequenos e recuperáveis",
+        "Trabalha com design e produto para transformar chamados de suporte em trabalho com escopo e entrega"
+      ]
+    },
+    {
+      "role": "Engenheira de software",
+      "company": "Lumen Field",
+      "start": "Junho 2020",
+      "end": "Fevereiro 2023",
+      "summary": "Manteve uma plataforma de operações multi-tenant usada por times de logística.",
+      "highlights": [
+        "Construiu serviços em Laravel para pedidos, galpões e status de entrega",
+        "Moveu relatórios lentos para filas e guardou consultas frequentes no Redis",
+        "Adicionou testes de integração no fluxo de cobrança depois de uma série de incidentes em produção",
+        "Entrou na rotação de plantão e escreveu os runbooks que o time ainda usa"
+      ]
+    },
+    {
+      "role": "Engenheira de software júnior",
+      "company": "Paperlane",
+      "start": "Agosto 2018",
+      "end": "Maio 2020",
+      "summary": "Primeiro cargo de engenharia, em um time pequeno que entregava uma ferramenta de conteúdo para editores.",
+      "highlights": [
+        "Implementou funcionalidades do editor em JavaScript e corrigiu bugs de layout entre navegadores",
+        "Escreveu o caminho de importação que trouxe artigos existentes para o novo editor",
+        "Aprendeu code review, git e como quebrar um chamado grande em partes revisáveis"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Market Day",
+      "role": "Projeto pessoal",
+      "summary": "Um pequeno aplicativo de estoque para barracas de feira.",
+      "highlights": [
+        "Front-end em Vue.js com uma API em Node e um banco SQLite",
+        "Feirantes acompanham o estoque no celular e exportam as vendas do dia em uma planilha"
+      ]
+    },
+    {
+      "name": "Route Cards",
+      "role": "Projeto pessoal",
+      "summary": "Um painel de trânsito que mostra os próximos ônibus de um trajeto salvo.",
+      "highlights": [
+        "Consulta um feed público de chegadas e mostra as próximas partidas",
+        "Mantém a última resposta bem-sucedida na tela quando o feed cai"
+      ]
+    }
+  ],
+  "skills": [
+    { "name": "JavaScript", "level": 8 },
+    { "name": "Vue.js", "level": 7 },
+    { "name": "PHP", "level": 7 },
+    { "name": "Laravel", "level": 6 },
+    { "name": "Node.js", "level": 6 },
+    { "name": "MySQL", "level": 7 },
+    { "name": "APIs REST", "level": 8 },
+    { "name": "Git", "level": 7 }
+  ],
+  "languages": [
+    { "name": "Português", "level": 5 },
+    { "name": "Inglês", "level": 4 },
+    { "name": "Espanhol", "level": 2 }
+  ],
+  "education": [
+    {
+      "degree": "Graduação, Ciência da Computação",
+      "date": "2014 – 2018",
+      "school": "Universidade Técnica do Atlântico"
+    }
+  ],
+  "labels": {
+    "summary": "Resumo",
+    "experience": "Experiência",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "skills": "Habilidades",
+    "languages": "Idiomas",
+    "education": "Formação"
+  }
+}
