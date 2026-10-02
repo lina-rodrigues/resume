@@ -1,0 +1,12 @@
+{
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "redirects": [
+    {
+      "source": "/content/:path*",
+      "destination": "https://hlqy9gakuvvxblwg.public.blob.vercel-storage.com/:path*",
+      "permanent": false
+    }
+  ]
+}
