@@ -192,6 +192,12 @@ h2 {
   line-height: 1.25;
 }
 
+.project-name a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .project-role {
   margin-top: 0.4mm;
   font-size: 0.82rem;

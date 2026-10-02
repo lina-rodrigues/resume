@@ -84,7 +84,10 @@
             <section v-if="projects.length" class="block">
               <h2 v-if="label('projects')">{{ label('projects') }}</h2>
               <article v-for="(project, index) in projects" :key="'project-' + index" class="item">
-                <h3 v-if="project.name" class="project-name">{{ project.name }}</h3>
+                <h3 v-if="project.name" class="project-name">
+                  <a v-if="project.url" :href="project.url">{{ project.name }}</a>
+                  <template v-else>{{ project.name }}</template>
+                </h3>
                 <div v-if="project.role" class="project-role">{{ project.role }}</div>
                 <p v-if="project.summary" class="prose">{{ project.summary }}</p>
                 <ul v-if="project.highlights.length">

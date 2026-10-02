@@ -129,6 +129,17 @@ const app = createApp({
           href: url || undefined,
         });
       }
+      const github = contact.github || {};
+      const githubLabel = text(github.label);
+      const githubUrl = text(github.url);
+      if (githubLabel || githubUrl) {
+        rows.push({
+          icon: "github",
+          family: "brands",
+          text: githubLabel || githubUrl,
+          href: githubUrl || undefined,
+        });
+      }
       return rows;
     },
     experience() {
@@ -148,6 +159,7 @@ const app = createApp({
       return items
         .map((item) => ({
           name: text(item && item.name),
+          url: text(item && item.url),
           role: text(item && item.role),
           summary: text(item && item.summary),
           highlights: Array.isArray(item && item.highlights) ? item.highlights.map(text).filter(Boolean) : [],
