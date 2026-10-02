@@ -98,7 +98,7 @@
           </div>
 
           <aside class="sidebar">
-            <section v-if="contactRows.length" class="block">
+            <section v-if="contactRows.length" class="block contact">
               <h2 v-if="label('contact')">{{ label('contact') }}</h2>
               <div v-for="(row, index) in contactRows" :key="'contact-' + index" class="contact-row">
                 <wa-icon :name="row.icon" :family="row.family"></wa-icon>
