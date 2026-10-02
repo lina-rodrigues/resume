@@ -4,9 +4,11 @@
   "packageManager": "pnpm@11.9.0",
   "scripts": {
     "dev": "node scripts/dev.mjs",
+    "pdf": "node scripts/print-pdf.mjs",
     "upload": "node scripts/upload.mjs"
   },
   "devDependencies": {
-    "@vercel/blob": "^2.8.0"
+    "@vercel/blob": "^2.8.0",
+    "playwright": "^1.63.0"
   }
 }
